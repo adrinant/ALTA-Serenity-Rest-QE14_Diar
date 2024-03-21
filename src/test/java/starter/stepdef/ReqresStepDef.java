@@ -33,7 +33,7 @@ public class ReqresStepDef {
 
     //Scenario 2
     @Given("Create user with valid JSON {string}")
-    public void createUserWithValidJSON(String JSON){
+    public void createUserWithValidJSON(String JSON) {
         File jsonFile = new File(Constants.REQ_BODY+JSON);
         reqresAPI.postCreateUser(jsonFile);
     }
@@ -41,5 +41,27 @@ public class ReqresStepDef {
     @When("Send request create new user")
     public void sendRequestCreateNewUser() {
         SerenityRest.when().post(ReqresAPI.CREATE_USER);
+    }
+
+    //Scenario 3
+    @Given("Update user with valid JSON {} and user id {}")
+    public void updateUserWithValidJsonAndUserId(String JSON, int id) {
+        File jsonFile = new File(Constants.REQ_BODY+JSON);
+        reqresAPI.putUpdateUser(id, jsonFile);
+    }
+
+    @When("Send request update user")
+    public void sendRequestUpdateUser() {
+        SerenityRest.when().put(ReqresAPI.UPDATE_USER);
+    }
+
+    @Given("Delete user with valid user id {int}")
+    public void deleteUserWithValidUserId(int id) {
+        SerenityRest.given().pathParam("id",id);
+    }
+
+    @When("Send request delete user")
+    public void sendRequestDeleteUser() {
+        SerenityRest.when().delete(ReqresAPI.DELETE_USER);
     }
 }
