@@ -1,21 +1,25 @@
 package starter.stepdef;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import starter.reqres.ReqresAPI;
+import starter.reqres.ReqresResponses;
 import starter.utils.Constants;
 
 import java.io.File;
+
+import static org.hamcrest.Matchers.equalTo;
 
 public class ReqresStepDef {
     @Steps
     ReqresAPI reqresAPI;
 
     @Given("Get list user with valid parameter page {int}")
-    public void getListUserWithParameterPage(int page){
+    public void getListUserWithParameterPage(int page) {
         reqresAPI.getListUsers(page);
     }
 
@@ -34,7 +38,7 @@ public class ReqresStepDef {
     //Scenario 2
     @Given("Create user with valid JSON {string}")
     public void createUserWithValidJSON(String JSON) {
-        File jsonFile = new File(Constants.REQ_BODY+JSON);
+        File jsonFile = new File(Constants.REQ_BODY + JSON);
         reqresAPI.postCreateUser(jsonFile);
     }
 
@@ -43,10 +47,17 @@ public class ReqresStepDef {
         SerenityRest.when().post(ReqresAPI.CREATE_USER);
     }
 
+    @And("Response body name should be {string} and job is {string}")
+    public void responseBodyNameShouldBeAndJobIs(String name, String job) {
+        SerenityRest.and()
+                .body(ReqresResponses.NAME, equalTo(name))
+                .body(ReqresResponses.JOB, equalTo(job));
+    }
+
     //Scenario 3
-    @Given("Update user with valid JSON {} and user id {}")
+    @Given("Update user with valid JSON {string} and user id {int}")
     public void updateUserWithValidJsonAndUserId(String JSON, int id) {
-        File jsonFile = new File(Constants.REQ_BODY+JSON);
+        File jsonFile = new File(Constants.REQ_BODY + JSON);
         reqresAPI.putUpdateUser(id, jsonFile);
     }
 
@@ -57,7 +68,7 @@ public class ReqresStepDef {
 
     @Given("Delete user with valid user id {int}")
     public void deleteUserWithValidUserId(int id) {
-        SerenityRest.given().pathParam("id",id);
+        SerenityRest.given().pathParam("id", id);
     }
 
     @When("Send request delete user")
