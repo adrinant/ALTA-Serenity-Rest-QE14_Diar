@@ -8,4 +8,7 @@ public class ReqresResponses {
     public static String DATA_EMAIL = "data.email";
     public static String DATA_ARRAY_ID = "data[0].id";
     public static String DATA_ARRAY_EMAIL = "data[0].email";
+    public static String SINGLE_RESOURCES_DATA_ID = "data.id";
+    public static String ERROR_MESSAGE = "error";
+    public static String ID = "id";
 }

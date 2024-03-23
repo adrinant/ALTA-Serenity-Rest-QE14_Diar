@@ -19,15 +19,34 @@ public class ResponsesStepDef {
 
     @And("Validate json schema {string}")
     public void validateJsonSchema(String json) {
-        File jsonFile = new File(Constants.JSON_SCHEMA+json);
+        File jsonFile = new File(Constants.JSON_SCHEMA + json);
         SerenityRest.and()
                 .body(JsonSchemaValidator.matchesJsonSchema(jsonFile));
     }
 
     //Tugas
-    @And("Response body data id should be {}")
+    @And("Response body data id should be {int}")
     public void responseBodyDataIdShouldBe(int id) {
         SerenityRest.and()
                 .body(ReqresResponses.DATA_ID, equalTo(id));
     }
+
+    @And("Response body data id should be id {int}")
+    public void responseBodyIdShouldBeId(int id) {
+        SerenityRest.and()
+                .body(ReqresResponses.SINGLE_RESOURCES_DATA_ID, equalTo(id));
+    }
+
+    @And("Response body should {string}")
+    public void responseBodyShould(String errorMessage) {
+        SerenityRest.and()
+                .body(ReqresResponses.ERROR_MESSAGE, equalTo(errorMessage));
+    }
+
+    @And("Response body id should be id {int}")
+    public void responseBodyDataIdShouldBeId(int id) {
+        SerenityRest.and()
+                .body(ReqresResponses.ID, equalTo(id));
+    }
+
 }
