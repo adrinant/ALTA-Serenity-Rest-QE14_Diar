@@ -25,10 +25,11 @@ public class ResponsesStepDef {
     }
 
     //Tugas
-    @And("Response body data id should be {int}")
-    public void responseBodyDataIdShouldBe(int id) {
+    @And("Response body data id should be id {int} and email {string}")
+    public void responseBodyDataIdShouldBe(int id, String email) {
         SerenityRest.and()
-                .body(ReqresResponses.DATA_ID, equalTo(id));
+                .body(ReqresResponses.DATA_ID, equalTo(id))
+                .body(ReqresResponses.DATA_EMAIL, equalTo(email));
     }
 
     @And("Response body data id should be id {int}")

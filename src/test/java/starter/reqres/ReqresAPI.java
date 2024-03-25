@@ -18,6 +18,7 @@ public class ReqresAPI {
     public static String SINGLE_LIST_RESOURCES = Constants.BASE_URL + "/api/unknown/{id}";
     public static String USER_LOGIN = Constants.BASE_URL + "/api/login";
     public static String REGISTER = Constants.BASE_URL + "/api/register";
+    public static String DELAYED_RESPONSE = Constants.BASE_URL + "/api/users?delay={delay}";
 
     @Step("Get list user with valid parameter page")
     public void getListUsers(int page) {
@@ -97,6 +98,18 @@ public class ReqresAPI {
         SerenityRest.given()
                 .contentType(ContentType.JSON)
                 .body(JSON);
+    }
+
+    @Step("Get delayed response with valid delay parameter")
+    public void delayedResponse(int param) {
+        SerenityRest.given()
+                .pathParam("delay", param);
+    }
+
+    @Step("Get delayed response with invalid delay parameter")
+    public void delayedResponseInvalid(String param) {
+        SerenityRest.given()
+                .pathParam("delay", param);
     }
 
 }

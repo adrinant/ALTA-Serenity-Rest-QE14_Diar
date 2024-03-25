@@ -7,7 +7,7 @@ Feature: Reqres Register User
     When Send request register user
     Then Status code should be 200
     And Response body id should be id <id>
-    #Kurang JSONSchema
+    And Validate json schema "RegisterSuccessfulJsonSchema.json"
 
     Examples:
       | id | JSON               |
@@ -22,8 +22,8 @@ Feature: Reqres Register User
     And Response body should "<error>"
 
     Examples:
-      |                            | JSON                      | error                     |
-      | Empty Email                | RegisterUserInvalid1.json | Missing email or username |
-      | Empty Password             | RegisterUserInvalid2.json | Missing password          |
-      | Empty Email Empty Password | RegisterUserInvalid3.json | Missing email or username |
+      |  | JSON                      | error                     |
+      |  | RegisterUserInvalid1.json | Missing email or username |
+      |  | RegisterUserInvalid2.json | Missing password          |
+      |  | RegisterUserInvalid3.json | Missing email or username |
 
