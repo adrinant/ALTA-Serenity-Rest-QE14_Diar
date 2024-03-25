@@ -1,4 +1,5 @@
 Feature: Reqres Delayed Response
+  As a user i want to get delayed response
 
   @Tugas
   #Positive-TC

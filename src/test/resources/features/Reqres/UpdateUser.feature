@@ -1,4 +1,5 @@
 Feature: Reqres Update User
+  As a user i want to update reqres user
 
   @Tugas
   #Positive

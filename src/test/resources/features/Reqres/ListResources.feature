@@ -1,4 +1,5 @@
 Feature: Reqres List Resources
+  As a user i want to get reqres resources
 
   @Tugas
     #Positive

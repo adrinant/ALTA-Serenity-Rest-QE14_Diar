@@ -1,4 +1,5 @@
 Feature: Reqres Register User
+  As a user i want to register user to reqres API
 
   @Tugas
   #Positive

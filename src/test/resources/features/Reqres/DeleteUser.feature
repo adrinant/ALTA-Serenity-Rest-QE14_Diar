@@ -1,4 +1,5 @@
 Feature: Reqres Delete User
+  As a user i want to delete reqres user
 
   @Tugas
   #Positive

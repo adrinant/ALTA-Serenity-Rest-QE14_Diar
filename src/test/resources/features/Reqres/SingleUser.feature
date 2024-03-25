@@ -1,4 +1,5 @@
 Feature: Reqres Single User
+  As a user i want to get reqres single user
 
   @Tugas
   #Positive-TC

@@ -1,4 +1,5 @@
-Feature: Reqres Register & Login User
+Feature: Login User
+  As a user i want to login to reqres API
 
   @Tugas
   Scenario Outline: User login with valid body email and password
