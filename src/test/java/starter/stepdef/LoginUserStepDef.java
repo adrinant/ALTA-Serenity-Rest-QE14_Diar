@@ -27,7 +27,7 @@ public class LoginUserStepDef {
     }
 
     @Given("User login with invalid JSON {string}")
-    public void userLoginWithInvalidJSON(String JSON) {
+    public void userLoginWithInvalidJson(String JSON) {
         File jsonFile = new File(Constants.REQ_BODY + JSON);
         reqresAPI.userLogin(jsonFile);
     }

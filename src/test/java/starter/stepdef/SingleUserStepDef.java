@@ -28,4 +28,8 @@ public class SingleUserStepDef {
         reqresAPI.getSingleUser(id);
     }
 
+    @Given("Get single user with invalid user id {string}")
+    public void getSingleUserWithNonNumericId(String id) {
+        reqresAPI.getSingleUserNonNumeric(id);
+    }
 }

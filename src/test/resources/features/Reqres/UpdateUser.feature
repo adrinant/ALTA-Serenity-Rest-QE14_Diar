@@ -19,7 +19,7 @@ Feature: Reqres Update User
   Scenario Outline: Update user with invalid JSON and valid user id
     Given Update user with invalid JSON "<JSON>" and valid user id <id>
     When Send request update user
-    Then Status code should be 404
+    Then Status code should be 400
 
     Examples:
       | id | JSON                    |

@@ -16,12 +16,12 @@ public class UpdateUserStepDef {
     @Given("Update user with invalid JSON {string} and valid user id {int}")
     public void updateUserWithInvalidJSONAndValidUserId(String JSON, int id) {
         File jsonFile = new File(Constants.REQ_BODY + JSON);
-        reqresAPI.updateUserInvalidJsonValidId(jsonFile, id);
+        reqresAPI.updateUser(jsonFile, id);
     }
 
     @Given("Update user with valid JSON {string} and invalid user id {int}")
     public void updateUserWithValidJSONAndInvalidUserId(String JSON, int id) {
         File jsonFile = new File(Constants.REQ_BODY + JSON);
-        reqresAPI.updateUserValidJsonInvalidId(jsonFile, id);
+        reqresAPI.updateUser(jsonFile, id);
     }
 }

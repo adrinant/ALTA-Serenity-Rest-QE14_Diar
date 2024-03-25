@@ -25,6 +25,6 @@ public class DeleteUserStepDef {
 
     @Given("Delete single user with invalid user id {int}")
     public void deleteSingleUserWithInvalidUserId(int id) {
-        reqresAPI.deleteSingleUserInvalidId(id);
+        reqresAPI.deleteSingleUser(id);
     }
 }

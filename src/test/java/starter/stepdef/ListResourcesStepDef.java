@@ -38,7 +38,7 @@ public class ListResourcesStepDef {
 
     @Given("Get single resources with invalid data id {int}")
     public void getSingleResourcesWithInvalidDataId(int id) {
-        reqresAPI.getSingleResourcesInvalid(id);
+        reqresAPI.getSingleResources(id);
     }
 
 

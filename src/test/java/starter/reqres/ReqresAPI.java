@@ -46,8 +46,14 @@ public class ReqresAPI {
                 .pathParam("id", id);
     }
 
-    @Step("Get single user with valid user id")
+    @Step("Get single user")
     public void getSingleUser(int id) {
+        SerenityRest.given()
+                .pathParam("id", id);
+    }
+
+    @Step("Get single user non-numeric id")
+    public void getSingleUserNonNumeric(String id) {
         SerenityRest.given()
                 .pathParam("id", id);
     }
@@ -59,42 +65,22 @@ public class ReqresAPI {
                 .get(LIST_RESOURCES);
     }
 
-    @Step("Get single resources with valid data id")
+    @Step("Get single resources")
     public void getSingleResources(int id) {
         SerenityRest.given()
                 .pathParam("id", id);
     }
 
-    @Step("Get single resources with invalid data id")
-    public void getSingleResourcesInvalid(int id) {
-        SerenityRest.given()
-                .pathParam("id", id);
-    }
-
-    @Step("Update user with invalid JSON and valid user id")
-    public void updateUserInvalidJsonValidId(File JSON, int id) {
+    @Step("Update user")
+    public void updateUser(File JSON, int id) {
         SerenityRest.given()
                 .pathParam("id", id)
                 .contentType(ContentType.JSON)
                 .body(JSON);
     }
 
-    @Step("Update user with valid JSON {string} and invalid user id {int}")
-    public void updateUserValidJsonInvalidId(File JSON, int id) {
-        SerenityRest.given()
-                .pathParam("id", id)
-                .contentType(ContentType.JSON)
-                .body(JSON);
-    }
-
-    @Step("Delete single user with valid user id")
+    @Step("Delete single user")
     public void deleteSingleUser(int id) {
-        SerenityRest.given()
-                .pathParam("id", id);
-    }
-
-    @Step("Delete single user with invalid user id")
-    public void deleteSingleUserInvalidId(int id) {
         SerenityRest.given()
                 .pathParam("id", id);
     }
