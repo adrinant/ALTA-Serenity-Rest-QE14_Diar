@@ -10,6 +10,7 @@ Feature: Reqres Delayed Response
     And Response body page should be 1 and data id 1 with email "george.bluth@reqres.in"
     And Validate json schema "DelayedResponseJsonSchema.json"
 
+  @Tugas
   #Negative-TC
   Scenario: Get delayed response with invalid delay parameter
     Given Get delayed response with invalid delay parameter "##"
